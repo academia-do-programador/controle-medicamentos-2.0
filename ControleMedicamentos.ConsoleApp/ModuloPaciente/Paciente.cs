@@ -4,13 +4,13 @@ using ControleMedicamentos.ConsoleApp.Compartilhado;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
 {
-    internal class Funcionario : EntidadeBase
+    internal class Paciente : EntidadeBase
     {
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public string CartaoSus { get; set; }
 
-        public Funcionario(string nome, string telefone, string cartaoSus)
+        public Paciente(string nome, string telefone, string cartaoSus)
         {
             Nome = nome;
             Telefone = telefone;

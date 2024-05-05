@@ -1,24 +1,25 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
 {
-    internal class RequisicaoSaida : EntidadeBase
+    internal class RequisicaoEntrada : EntidadeBase
     {
 
         public Medicamento Medicamento { get; set; }
-        public Paciente Paciente { get; set; }
+        public Fornecedor Fornecedor { get; set; }
         public DateTime DataRequisicao { get; set; }
-        public int QuantidadeRetirada { get; set; }
+        public int QuantidadeAdicionada { get; set; }
 
-        public RequisicaoSaida(Medicamento medicamentoSelecionado, Paciente pacienteSelecionado, int quantidade)
+        public RequisicaoEntrada(Medicamento medicamentoRequisitado, Fornecedor fornecedorSelecionado, int quantidade)
         {
-            Medicamento = medicamentoSelecionado;
-            Paciente = pacienteSelecionado;
+            Medicamento = medicamentoRequisitado;
+            Fornecedor = fornecedorSelecionado;
 
             DataRequisicao = DateTime.Now;
-            QuantidadeRetirada = quantidade;
+            QuantidadeAdicionada = quantidade;
         }
 
         public override string[] Validar()
@@ -29,10 +30,10 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
             if (Medicamento == null)
                 erros[contadorErros++] = "O medicamento precisa ser preenchido";
 
-            if (Paciente == null)
-                erros[contadorErros++] = "O paciente precisa ser informado";
+            if (Fornecedor == null)
+                erros[contadorErros++] = "O fornecedor precisa ser informado";
 
-            if (QuantidadeRetirada < 1)
+            if (QuantidadeAdicionada < 1)
                 erros[contadorErros++] = "Por favor informe uma quantidade válida";
 
             string[] errosFiltrados = new string[contadorErros];
@@ -42,12 +43,12 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
             return errosFiltrados;
         }
 
-        public bool RetirarMedicamento()
+        public bool AdicionarMedicamento()
         {
-            if (Medicamento.Quantidade < QuantidadeRetirada)
+            if (Medicamento.Quantidade < QuantidadeAdicionada)
                 return false;
 
-            Medicamento.Quantidade -= QuantidadeRetirada;
+            Medicamento.Quantidade += QuantidadeAdicionada;
             return true;
         }
     }
