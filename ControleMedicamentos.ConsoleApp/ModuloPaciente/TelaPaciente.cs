@@ -22,7 +22,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
 
             EntidadeBase[] pacientesCadastrados = repositorio.SelecionarTodos();
 
-            foreach (Paciente paciente in pacientesCadastrados)
+            foreach (Funcionario paciente in pacientesCadastrados)
             {
                 if (paciente == null)
                     continue;
@@ -48,14 +48,14 @@ namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
             Console.Write("Digite o cartão do SUS do paciente: ");
             string cartaoSus = Console.ReadLine();
 
-            Paciente novoPaciente = new Paciente(nome, telefone, cartaoSus);
+            Funcionario novoPaciente = new Funcionario(nome, telefone, cartaoSus);
 
             return novoPaciente;
         }
 
         public void CadastrarEntidadeTeste()
         {
-            Paciente paciente = new Paciente("Bobby Tables", "49 9999-9521", "12321313122");
+            Funcionario paciente = new Funcionario("Bobby Tables", "49 9999-9521", "12321313122");
 
             repositorio.Cadastrar(paciente);
         }
