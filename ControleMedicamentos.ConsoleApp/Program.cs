@@ -21,25 +21,25 @@ namespace ControleMedicamentos.ConsoleApp
             RepositorioMedicamento repositorioMedicamento = new RepositorioMedicamento();
             TelaMedicamento telaMedicamento = new TelaMedicamento();
             telaMedicamento.repositorio = repositorioMedicamento;
-            telaMedicamento.tipoEntidade = "Medicamento";
+            telaMedicamento.tipoEntidade = "Medicamentos";
 
             RepositorioRequisicaoSaida repositorioRequisicaoSaida = new RepositorioRequisicaoSaida();
 
             TelaRequisicaoSaida telaRequisicaoSaida = new TelaRequisicaoSaida();
             telaRequisicaoSaida.repositorio = repositorioRequisicaoSaida;
-            telaRequisicaoSaida.tipoEntidade = "Requisição";
+            telaRequisicaoSaida.tipoEntidade = "Requisiçãos";
 
             RepositorioFuncionario repositorioFuncionario = new RepositorioFuncionario();
 
             TelaFuncionario telaFuncionario = new TelaFuncionario();
             telaFuncionario.repositorio = repositorioFuncionario;
-            telaFuncionario.tipoEntidade = "Funcionário";
+            telaFuncionario.tipoEntidade = "Funcionários";
 
             RepositorioFornecedor repositorioFornecedor = new RepositorioFornecedor();
 
             TelaFornecedor telaFornecedor = new TelaFornecedor();
             telaFornecedor.repositorio = repositorioFornecedor;
-            telaFornecedor.tipoEntidade = "Fornecedore";
+            telaFornecedor.tipoEntidade = "Fornecedores";
 
             telaRequisicaoSaida.telaPaciente = telaPaciente;
             telaRequisicaoSaida.telaMedicamento = telaMedicamento;
@@ -67,7 +67,7 @@ namespace ControleMedicamentos.ConsoleApp
 
                 else if (opcaoPrincipalEscolhida == '4')
                     tela = telaRequisicaoSaida;
-                
+
                 else if (opcaoPrincipalEscolhida == '5')
                     tela = telaFornecedor;
 
