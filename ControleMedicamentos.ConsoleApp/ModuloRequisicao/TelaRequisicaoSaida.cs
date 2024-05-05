@@ -94,7 +94,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
             Console.Write("Digite o ID do paciente requisitante: ");
             int idPaciente = Convert.ToInt32(Console.ReadLine());
 
-            Paciente pacienteSelecionado = (Paciente)repositorioPaciente.SelecionarPorId(idPaciente);
+            Funcionario pacienteSelecionado = (Funcionario)repositorioPaciente.SelecionarPorId(idPaciente);
 
             Console.Write("Digite a quantidade do medicamente que deseja retirar: ");
             int quantidade = Convert.ToInt32(Console.ReadLine());

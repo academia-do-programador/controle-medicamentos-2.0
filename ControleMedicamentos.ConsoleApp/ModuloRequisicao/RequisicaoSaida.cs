@@ -8,11 +8,11 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
     {
 
         public Medicamento Medicamento { get; set; }
-        public Paciente Paciente { get; set; }
+        public Funcionario Paciente { get; set; }
         public DateTime DataRequisicao { get; set; }
         public int QuantidadeRetirada { get; set; }
 
-        public RequisicaoSaida(Medicamento medicamentoSelecionado, Paciente pacienteSelecionado, int quantidade)
+        public RequisicaoSaida(Medicamento medicamentoSelecionado, Funcionario pacienteSelecionado, int quantidade)
         {
             Medicamento = medicamentoSelecionado;
             Paciente = pacienteSelecionado;
