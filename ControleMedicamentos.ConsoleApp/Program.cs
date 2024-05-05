@@ -35,11 +35,11 @@ namespace ControleMedicamentos.ConsoleApp
             telaFuncionario.repositorio = repositorioFuncionario;
             telaFuncionario.tipoEntidade = "Funcionário";
 
-            //RepositorioFornecedor repositorioFornecedor = new RepositorioFornecedor();
+            RepositorioFornecedor repositorioFornecedor = new RepositorioFornecedor();
 
-            //TelaFornecedor telaFornecedor = new TelaFornecedor();
-            //telaFornecedor.repositorio = repositorioFornecedor;
-            //telaFornecedor.tipoEntidade = "Fornecedor";
+            TelaFornecedor telaFornecedor = new TelaFornecedor();
+            telaFornecedor.repositorio = repositorioFornecedor;
+            telaFornecedor.tipoEntidade = "Fornecedore";
 
             telaRequisicaoSaida.telaPaciente = telaPaciente;
             telaRequisicaoSaida.telaMedicamento = telaMedicamento;
@@ -68,8 +68,8 @@ namespace ControleMedicamentos.ConsoleApp
                 else if (opcaoPrincipalEscolhida == '4')
                     tela = telaRequisicaoSaida;
                 
-                //else if (opcaoPrincipalEscolhida == '5')
-                //    tela = telaFornecedor;
+                else if (opcaoPrincipalEscolhida == '5')
+                    tela = telaFornecedor;
 
                 char operacaoEscolhida = tela.ApresentarMenu();
 
