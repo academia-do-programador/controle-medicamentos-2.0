@@ -1,6 +1,7 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
 {
@@ -22,9 +23,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
 
             RequisicaoEntrada entidade = (RequisicaoEntrada)ObterRegistro();
 
-            string[] erros = entidade.Validar();
+            ArrayList erros = entidade.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Count > 0)
             {
                 ApresentarErros(erros);
                 return;

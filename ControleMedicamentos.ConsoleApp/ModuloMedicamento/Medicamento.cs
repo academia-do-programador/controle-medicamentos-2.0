@@ -1,5 +1,6 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 {
@@ -29,33 +30,28 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
             Quantidade = quantidade;
         }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[5];
-            int contadorErros = 0;
+            ArrayList erros = new ArrayList();
 
             if (string.IsNullOrEmpty(Nome.Trim()))
-                erros[contadorErros++] = ("O campo \"nome\" é obrigatório");
+                erros.Add("O campo \"nome\" é obrigatório");
 
             if (string.IsNullOrEmpty(Descricao.Trim()))
-                erros[contadorErros++] = ("O campo \"descrição\" é obrigatório");
+                erros.Add("O campo \"descrição\" é obrigatório");
 
             if (string.IsNullOrEmpty(Lote.Trim()))
-                erros[contadorErros++] = ("O campo \"lote\" é obrigatório");
+                erros.Add("O campo \"lote\" é obrigatório");
 
             if (Fornecedor == null)
-                erros[contadorErros++] = ("O campo \"fornecedor\" é obrigatório");
+                erros.Add("O campo \"fornecedor\" é obrigatório");
 
             DateTime hoje = DateTime.Now.Date;
 
             if (DataValidade < hoje)
-                erros[contadorErros++] = ("O campo \"data de validade\" não pode ser menor que a data atual");
+                erros.Add("O campo \"data de validade\" não pode ser menor que a data atual");
 
-            string[] errosFiltrados = new string[contadorErros];
-
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
         }
 
     }
