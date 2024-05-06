@@ -30,16 +30,8 @@
             return operacaoEscolhida;
         }
 
-        public virtual void Registrar()
+        protected void InserirRegistro(EntidadeBase entidade)
         {
-            ApresentarCabecalho();
-
-            Console.WriteLine($"Cadastrando {tipoEntidade}...");
-
-            Console.WriteLine();
-
-            EntidadeBase entidade = ObterRegistro();
-
             string[] erros = entidade.Validar();
 
             if (erros.Length > 0)
@@ -51,6 +43,19 @@
             repositorio.Cadastrar(entidade);
 
             ExibirMensagem($"O {tipoEntidade} foi cadastrado com sucesso!", ConsoleColor.Green);
+        }
+
+        public virtual void Registrar()
+        {
+            ApresentarCabecalho();
+
+            Console.WriteLine($"Cadastrando {tipoEntidade}...");
+
+            Console.WriteLine();
+
+            EntidadeBase entidade = ObterRegistro();
+
+            InserirRegistro(entidade);
         }
 
         public void Editar()
