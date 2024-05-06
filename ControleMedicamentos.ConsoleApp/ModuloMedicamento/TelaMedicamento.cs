@@ -1,5 +1,6 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 {
@@ -24,7 +25,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
                 "Id", "Nome", "Fornecedor", "Quantidade"
             );
 
-            EntidadeBase[] medicamentosCadastrados = repositorio.SelecionarTodos();
+            ArrayList medicamentosCadastrados = repositorio.SelecionarTodos();
 
             foreach (Medicamento medicamento in medicamentosCadastrados)
             {

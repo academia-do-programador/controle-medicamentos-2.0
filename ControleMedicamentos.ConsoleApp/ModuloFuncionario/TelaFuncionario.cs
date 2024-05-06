@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
 {
@@ -20,7 +21,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
                 "Id", "Nome", "Telefone", "CPF"
             );
 
-            EntidadeBase[] funcionariosCadastrados = repositorio.SelecionarTodos();
+            ArrayList funcionariosCadastrados = repositorio.SelecionarTodos();
 
             foreach (Funcionario funcionario in funcionariosCadastrados)
             {

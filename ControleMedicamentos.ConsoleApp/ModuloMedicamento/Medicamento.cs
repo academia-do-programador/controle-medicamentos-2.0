@@ -54,5 +54,16 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
             return erros;
         }
 
+        public override void AtualizarRegistro(EntidadeBase novoegistro)
+        {
+            Medicamento novasInformacoes = (Medicamento)novoegistro;
+
+            this.Nome = novasInformacoes.Nome;
+            this.Descricao = novasInformacoes.Descricao;
+            this.Lote = novasInformacoes.Lote;
+            this.DataValidade = novasInformacoes.DataValidade;
+            this.Fornecedor = novasInformacoes.Fornecedor;
+            this.Quantidade = novasInformacoes.Quantidade;
+        }
     }
 }

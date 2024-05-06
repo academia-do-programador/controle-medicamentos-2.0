@@ -32,5 +32,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
             return erros;
         }
 
+        public override void AtualizarRegistro(EntidadeBase novoegistro)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
