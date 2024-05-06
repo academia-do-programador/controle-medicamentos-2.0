@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 {

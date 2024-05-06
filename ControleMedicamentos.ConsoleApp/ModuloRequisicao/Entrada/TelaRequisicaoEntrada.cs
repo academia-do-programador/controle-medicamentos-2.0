@@ -3,7 +3,7 @@ using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
 
-namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
+namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
 {
     internal class TelaRequisicaoEntrada : TelaBase
     {
@@ -83,6 +83,14 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
 
         protected override EntidadeBase ObterRegistro()
         {
+            RepositorioMedicamento repositorioMedicamento = new RepositorioMedicamento();
+            TelaMedicamento telaMedicamento = new TelaMedicamento();
+            telaMedicamento.repositorio = repositorioMedicamento;
+            telaMedicamento.tipoEntidade = "Medicamentos";
+
+            telaMedicamento.VisualizarRegistros(false);
+
+
             Console.Write("Digite o nome do medicamento requisitado: ");
             string nome = Console.ReadLine();
 
@@ -96,6 +104,15 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
             DateTime dataValidade = Convert.ToDateTime(Console.ReadLine());
 
             Medicamento medicamento = new Medicamento(nome, descricao, lote, dataValidade);
+
+
+            RepositorioFornecedor repositorioFornecedor = new RepositorioFornecedor();
+
+            TelaFornecedor telaFornecedor = new TelaFornecedor();
+            telaFornecedor.repositorio = repositorioFornecedor;
+            telaFornecedor.tipoEntidade = "Fornecedores";
+            telaFornecedor.CadastrarEntidadeTeste();
+
 
             telaFornecedor.VisualizarRegistros(false);
 
