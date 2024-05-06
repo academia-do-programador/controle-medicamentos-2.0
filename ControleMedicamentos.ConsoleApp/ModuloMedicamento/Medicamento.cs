@@ -1,26 +1,37 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 {
     internal class Medicamento : EntidadeBase
     {
-        public Medicamento(string nome, string descricao, string lote, DateTime dataValidade)
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public string Lote { get; set; }
+        public DateTime DataValidade { get; set; }
+        public Fornecedor Fornecedor { get; set; }
+        public int Quantidade { get; set; }
+
+        public Medicamento(
+            string nome,
+            string descricao,
+            string lote,
+            DateTime dataValidade,
+            Fornecedor fornecedor,
+            int quantidade
+        )
         {
             Nome = nome;
             Descricao = descricao;
             Lote = lote;
             DataValidade = dataValidade;
+            Fornecedor = fornecedor;
+            Quantidade = quantidade;
         }
-
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
-        public string Lote { get; set; }
-        private DateTime DataValidade { get; set; }
-        public int Quantidade { get; set; } = 5;
 
         public override string[] Validar()
         {
-            string[] erros = new string[3];
+            string[] erros = new string[5];
             int contadorErros = 0;
 
             if (string.IsNullOrEmpty(Nome.Trim()))
@@ -31,6 +42,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 
             if (string.IsNullOrEmpty(Lote.Trim()))
                 erros[contadorErros++] = ("O campo \"lote\" é obrigatório");
+
+            if (Fornecedor == null)
+                erros[contadorErros++] = ("O campo \"fornecedor\" é obrigatório");
 
             DateTime hoje = DateTime.Now.Date;
 
