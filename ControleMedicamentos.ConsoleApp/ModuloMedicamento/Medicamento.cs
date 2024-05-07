@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
@@ -17,6 +18,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
         public string Descricao { get; set; }
         public string Lote { get; set; }
         private DateTime DataValidade { get; set; }
+        public Fornecedor fornecedor { get; set; }
         public int Quantidade { get; set; } = 5;
 
         public override ArrayList Validar()
@@ -40,5 +42,16 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
             return erros;
         }
 
+        public override void AtualizarRegistros(EntidadeBase novoRegistro)
+        {
+            Medicamento novasIndormações = (Medicamento)novoRegistro;
+
+            this.Nome = novasIndormações.Nome;
+            this.Descricao = novasIndormações.Descricao;
+            this.Lote = novasIndormações .Lote; 
+            this.DataValidade = novasIndormações.DataValidade;
+            this.fornecedor = novasIndormações.fornecedor;
+            this.Quantidade = novasIndormações.Quantidade;
+        }
     }
 }

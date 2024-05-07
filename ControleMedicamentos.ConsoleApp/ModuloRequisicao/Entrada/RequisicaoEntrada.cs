@@ -47,5 +47,10 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
             Medicamento.Quantidade += QuantidadeAdicionada;
             return true;
         }
+
+        public override void AtualizarRegistros(EntidadeBase novoRegistro)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

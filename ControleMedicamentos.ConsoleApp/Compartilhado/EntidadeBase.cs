@@ -7,5 +7,7 @@ namespace ControleMedicamentos.ConsoleApp.Compartilhado
         public int Id { get; set; }
 
         public abstract ArrayList Validar();
+
+        public abstract void AtualizarRegistros(EntidadeBase novoRegistro);
     }
 }

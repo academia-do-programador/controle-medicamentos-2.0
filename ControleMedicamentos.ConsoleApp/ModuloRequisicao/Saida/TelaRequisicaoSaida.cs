@@ -60,7 +60,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Saida
                 "Id", "Medicamento", "Paciente", "Data de Requisição", "Quantidade"
             );
 
-            EntidadeBase[] requisicoesCadastradas = repositorio.SelecionarTodos();
+            ArrayList requisicoesCadastradas = repositorio.SelecionarTodos();
 
             foreach (RequisicaoSaida requisicao in requisicoesCadastradas)
             {

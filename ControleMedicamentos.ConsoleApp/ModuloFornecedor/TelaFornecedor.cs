@@ -1,5 +1,6 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
 {
@@ -21,13 +22,10 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
                 "Id", "Nome", "Telefone", "CNPJ"
             );
 
-            EntidadeBase[] fornecedorCadastrados = repositorio.SelecionarTodos();
+            ArrayList fornecedorCadastrados = repositorio.SelecionarTodos();
 
             foreach (Fornecedor fornecedor in fornecedorCadastrados)
             {
-                if (fornecedor == null)
-                    continue;
-
                 Console.WriteLine(
                     "{0, -10} | {1, -15} | {2, -15} | {3, -15}",
                     fornecedor.Id, fornecedor.Nome, fornecedor.Telefone, fornecedor.Cnpj
