@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
 {
@@ -15,25 +16,20 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
             Cnpj = cnpj;
         }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
-            int contadorErros = 0;
+            ArrayList erros = new ArrayList();
 
             if (string.IsNullOrEmpty(Nome.Trim()))
-                erros[contadorErros++] = ("O campo \"nome\" é obrigatório");
+                erros.Add("O campo \"nome\" é obrigatório");
 
             if (string.IsNullOrEmpty(Telefone.Trim()))
-                erros[contadorErros++] = ("O campo \"Telefone\" é obrigatório");
+                erros.Add("O campo \"Telefone\" é obrigatório");
 
             if (string.IsNullOrEmpty(Cnpj.Trim()))
-                erros[contadorErros++] = ("O campo \"CNPJ\" é obrigatório");
+                erros.Add("O campo \"CNPJ\" é obrigatório");
 
-            string[] errosFiltrados = new string[contadorErros];
-
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
         }
     }
 }

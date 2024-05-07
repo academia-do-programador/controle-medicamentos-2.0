@@ -7,6 +7,7 @@ Editar Funcionário: Oferece a possibilidade de modificar informações de um fu
 Excluir Funcionário: Permite remover um registro de funcionário do sistema.
 */
 using ControleMedicamentos.ConsoleApp.Compartilhado;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
 {
@@ -21,25 +22,20 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
             Telefone = telefone;
             CPF = cpf;
         }
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
-            int contadorErros = 0;
+            ArrayList erros = new ArrayList();  
 
             if (Nome.Length < 3)
-                erros[contadorErros++] = "O Nome do funcionario precisa conter ao menos 3 caracteres";
+               erros.Add("O Nome do funcionario precisa conter ao menos 3 caracteres");
 
             if (string.IsNullOrEmpty(Telefone))
-                erros[contadorErros++] = "O Telefone precisa ser preenchido";
+                erros.Add("O Telefone precisa ser preenchido");
 
             if (string.IsNullOrEmpty(CPF))
-                erros[contadorErros++] = "O CPF precisa ser preenchido";
+                erros.Add("O CPF precisa ser preenchido");
 
-            string[] errosFiltrados = new string[contadorErros];
-
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
         }
     }
 }
